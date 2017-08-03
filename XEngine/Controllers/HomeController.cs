@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XEngine.DAL;
 
 namespace XEngine.Controllers
 {
     public class HomeController : Controller
     {
+        private XEngineContext db = new XEngineContext();
         public ActionResult Index()
         {
+            var user = db.SysRoles.Count();
             return View();
         }
 
